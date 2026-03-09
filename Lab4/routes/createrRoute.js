@@ -1,14 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const creatorController = require("../controllers/creatorController");
 
-// Join creator community
-router.post("/join", (req, res) => {
-  res.send("Creator joined community");
-});
+router.get("/", creatorController.dashboard);
 
-// Learn creation
-router.get("/learn", (req, res) => {
-  res.send("Creator learning page");
-});
+router.post("/join", creatorController.joinCommunity);
+
+router.get("/learn", creatorController.learnCreation);
 
 module.exports = router;
